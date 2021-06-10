@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="icon" href="/img/favicon.png" />
+    <title>Angelo Paparazzi's Senior Project</title>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="main.css">
+    
+    <!--fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+  </head>
+
+
+  <body ng-controller="homeController as homeCtrl">
+			<header>
+				<h1>AI Wars: Twitter Sentiment Analysis</h1>
+			</header>
+		<main>
+      <div id="search-bar">
+        <form ng-submit="homeCtrl.analyze(companyName, tweetNumber)" enctype="multipart/form-data">
+          <input ng-model="companyName" type="text" placeholder="Company Name" required>
+          <input ng-model="tweetNumber" type="text" placeholder="# of Tweets" required>
+          <input type="submit" class="btn btn-default" value="Submit">
+        </form>
+      </div>
+
+      <div>
+        <div class="column" id="amazon">
+          <h2>Amazon</h2>
+            <div ng-show="loading">
+              <img src="/img/amazon_loading.gif" class="center">
+            </div>
+            <div id="amazonchart" ng-hide="loading"></div>
+          <h3 ng-show="seeScores">Average Score: {{homeCtrl.amazonScore}}</h3>
+        </div>
+        <div class="column" id="google">
+          <h2>Google</h2>
+            <div ng-show="loading">
+              <img src="/img/google_loading.gif" class="center">
+            </div>
+            <div id="googlechart" ng-hide="loading"></div>
+            <h3 ng-show="seeScores">Average Score: {{homeCtrl.googleScore}}</h3>
+        </div>
+        <div class="column" id="ibm">
+          <h2>IBM</h2>
+            <div ng-show="loading">
+              <img src="/img/ibm_loading.gif" class="center">
+            </div>
+            <div id="ibmchart" ng-hide="loading"></div>
+          <h3 ng-show="seeScores">Average Score: {{homeCtrl.ibmScore}}</h3>
+        </div>
+
+        <table class="container">
+          <tr>
+            <th>Tweet</th>
+            <th>Node ID</th> 
+            <th>Amazon Score</th>
+            <th>Google Score</th>
+            <th>IBM Score</th>
+          </tr>
+          <tr ng-repeat="x in homeCtrl.allData">
+            <td>{{ x.tweet }}</td>
+            <td>{{ x.node }}</td>
+            <td id="amazon-td" ng-style="{'background-color': homeCtrl.colorPicker(x.awsScore)}">{{ x.awsScore }}</td>
+            <td id="google-td" ng-style="{'background-color': homeCtrl.colorPicker(x.googleScore)}">{{ x.googleScore }}</td>
+            <td id="ibm-td" ng-style="{'background-color': homeCtrl.colorPicker(x.ibmScore)}">{{ x.ibmScore }}</td>
+          </tr>
+        </table>
+      </div>
+      </main>
+
+    
+
+
+    <!-- Import Scripts -->
+    <!-- JS files should be the last thing in the body -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!-- <script type="text/javascript">
+      function doIt(){
+         // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work', {{homeCtrl}}],
+          ['Friends', 2],
+          ['Eat', 2],
+          ['TV', 2],
+          ['Gym', 2],
+          ['Sleep', 8]
+        ]);
+        
+          // Optional; add a title and set the width and height of the chart
+          var options = {'title':'My Average Day', 'width':550, 'height':400};
+        
+          // Display the chart inside the <div> element with id="piechart"
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+          chart.draw(data, options);
+        }
+      }
+      </script> -->
+
+
+
+    <!-- Angular JS app, modules, services -->
+    <script src="/js/app.js"></script>
+    <script src="/js/homeController.js"></script>
+    <script src="/js/listingsFactory.js"></script>
+
+
+  </body>
+</html>

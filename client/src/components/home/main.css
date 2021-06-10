@@ -1,0 +1,138 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+/* FONTS
+font-family: 'Roboto Slab', serif;
+font-family: 'Roboto Condensed', sans-serif;
+*/
+body {
+	background-image: url(/img/background.png);
+	background-repeat: repeat;
+	background-size: cover;
+	height: 100vh;
+}
+h1 {
+	font-family: 'Roboto Slab', serif;
+	font-size: 1.8rem;
+	margin: 15px;
+}
+p {
+	font-family: 'Roboto Condensed', sans-serif;
+	padding: 10px;
+}
+table, th, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+table {
+	border-spacing: 15px;
+}
+
+/* COLUMNS */
+/* .container{
+	display: flex;
+	flex-direction: row;
+}
+.column{
+	width: 33.33%;
+	margin: 10px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px
+} */
+.column {
+	float: left;
+	width: 33.33%;
+	margin-top: 40px;
+}
+.column h2 {
+	text-align: center;
+	font-family: 'Roboto Condensed', sans-serif;
+	color: #fff;
+	font-size: 1.9rem;
+}
+
+/* Images */
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	height:	50%;
+}
+
+/* The fancy table */
+.container {
+	text-align: left;
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+	display: table;
+	padding: 8em 0 8em 0;
+}
+
+.container td, .container th {
+	padding-bottom: 2%;
+	padding-top: 2%;
+	padding-left:2%;  
+}
+
+/* Background-color of the odd rows */
+.container tr:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+/* Background-color of the even rows */
+.container tr:nth-child(even) {
+	background-color: #e6e6e6;
+}
+
+.container th {
+	background-color: #000000;
+	color: #ffffff
+	
+}
+
+.container tr:hover {
+ background-color: #FFF842;
+-webkit-box-shadow: 0 6px 6px -6px #0E1119;
+	 -moz-box-shadow: 0 6px 6px -6px #0E1119;
+		  box-shadow: 0 6px 6px -6px #0E1119;
+}
+
+/* .container td:hover {
+background-color: #FFF842;
+color: #403E10;
+font-weight: bold;
+
+box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+transform: translate3d(6px, -6px, 0);
+
+transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+transition-timing-function: line;
+} */
+
+/* SEARCH AND BUTTON */
+input[type=text] {
+	margin-left: 40%;
+	padding: 8px;
+	font-size: 1rem;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 2px 5px 1px #4F4F4F;
+box-shadow: 0 2px 5px 1px #4F4F4F;
+}
+.btn {
+	padding: 4px 6px 4px 6px;
+	border-radius: 5px;
+	margin-left: 5px;
+	background-color: #000;
+	color: #fff;
+	font-size: 0.8rem;
+}
+.btn:hover {
+	color: #ffdb26;
+}
